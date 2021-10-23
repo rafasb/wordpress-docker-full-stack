@@ -1,2 +1,3 @@
-.datos/mysql/
-.datos/wordpress
+.datos/mysql/*
+.datos/wordpress/*
+
