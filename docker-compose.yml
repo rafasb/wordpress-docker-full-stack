@@ -63,6 +63,3 @@ services:
       - type: bind
         source: .datos/letsencrypt
         target: /etc/letsencrypt
-
-
-

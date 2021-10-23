@@ -18,8 +18,13 @@ Pre-requisitos:
 Notas:
 
 * NPM: 
+    * Consola de administración en http://\<IPdeHOST\>:81
     * usuario (Email): admin@example.com    
     * Password: changeme 
+    * El primer paso al acceder es cambiar los datos de administrador y su contraseña.
 
 
+* Variables de entorno:
+    Todos los valores de las variables de entorno deben ser cambiados para garantizar la seguridad (nombres de base de datos, nombres de usuario y sus contraseñas)
 
+* Es necesario editar el fichero hosts (en Windows o en Linux) para poner un nombre asociado al host del despliegue.
