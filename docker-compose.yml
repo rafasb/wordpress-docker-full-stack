@@ -1,22 +1,23 @@
 version: "3.9"
     
 services:
-  db:
+  
+  db-wp:
     image: mysql:5.7
     volumes:
       - type: bind
-        source: .datos/mysql
+        source: .datos/mysql-wp
         target: /var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: 'cambiapassderoot'
+      MYSQL_DATABASE: 'wordpress'
+      MYSQL_USER: 'wordpress'
+      MYSQL_PASSWORD: 'wordpress'
     
   wordpress:
     depends_on:
-      - db
+      - db-wp
     image: wordpress:latest
     volumes:
       - type: bind
@@ -26,10 +27,42 @@ services:
       - "8000:80"
     restart: always
     environment:
-      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_HOST: db-wp:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+
+  db-npm:
+    image: 'jc21/mariadb-aria:latest'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'cambiapassderoot'
+      MYSQL_DATABASE: 'npm-name'
+      MYSQL_USER: 'npm-user'
+      MYSQL_PASSWORD: 'npm-pass'
+    volumes:
+      - type: bind
+        source: .datos/mysql-npm
+        target: /var/lib/mysql
+
+  proxy:
+    image: 'jc21/nginx-proxy-manager:latest'
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    environment:
+      DB_MYSQL_HOST: "db-npm"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm-user"
+      DB_MYSQL_PASSWORD: "npm-pass"
+      DB_MYSQL_NAME: "npm-name"
+    volumes:
+      - type: bind
+        source: .datos/npm
+        target: /data
+      - type: bind
+        source: .datos/letsencrypt
+        target: /etc/letsencrypt
 
 
 

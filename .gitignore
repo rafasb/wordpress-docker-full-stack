@@ -1,3 +1,5 @@
-.datos/mysql/*
+.datos/mysql-wp/*
 .datos/wordpress/*
-
+.datos/mysql-npm/*
+.datos/letsencrypt/*
+.datos/npm/*
