@@ -1,4 +1,4 @@
-# wordpress-docker-full-stack
+# Wordpress docker full stack
 Parametrización de Wordpress sobre docker-compose con base de datos mysql, datos persistentes y proxy inverso (NPM) para certificado SSL.
 
 Nos permitirá disponer de un servidor wordpress, con certificado SSL gratuito de Let's Encrypt. 
