@@ -8,6 +8,7 @@ Nos permitirá disponer de un servidor wordpress, con certificado SSL gratuito d
 En el equipo o máquina virtual donde vamos a instalar el servidor wordpress:
 
 1) Instalar docker: https://docs.docker.com/engine/install/ y https://docs.docker.com/engine/install/linux-postinstall/ 
+
 2) Instalar docker-compose: https://docs.docker.com/compose/install/
 
 Asegurate de:
@@ -18,17 +19,23 @@ Asegurate de:
 ## Instrucciones básicas
 
 1) Clonar el directorio con: `git clone https://github.com/rafasb/wordpress-docker-full-stack.git`
+
 2) Cambiar el directorio con `cd wordpress-docker-full-stack`
+
 3) Ejecutar `docker-compose up -d`
 
 ## Tras el arranque
 
 1) Accedemos a la consola de administración del proxy inverso (NPM) mediante `http://\<IPdeHOST\>:81`.
+
 2) Usamos las credenciales:
     * usuario (Email): admin@example.com    
     * Password: changeme
+
 3) Como primer paso al acceder cambiaremos los datos de administrador y su contraseña.
+
 4) En caso de no disponer de acceso al servidor DNS: Es necesario editar el fichero hosts (en Windows o en Linux) para poner un nombre asociado al host del despliegue. 
+
 5) Configuraremos los `proxy host` con el nombre del servidor y destino la IP del host con wordpress y el puerto 8000 (si se mantiene el valor del ejemplo).
 
 ## Para producción
