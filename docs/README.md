@@ -26,11 +26,13 @@ Asegurate de:
 
 ## Tras el arranque
 
-1) Accedemos a la consola de administración del proxy inverso (NPM) mediante `http://\<IPdeHOST\>:81`.
+1) Accedemos a la consola de administración del proxy inverso (NPM) mediante 
+
+`http://\<IPdeHOST\>:81`.
 
 2) Usamos las credenciales:
-    * usuario (Email): admin@example.com    
-    * Password: changeme
+* usuario (Email): admin@example.com    
+* Password: changeme
 
 3) Como primer paso al acceder cambiaremos los datos de administrador y su contraseña.
 
